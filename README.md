@@ -1,27 +1,40 @@
-# SimpleApp
+# Angular5 articles app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+By Thibaud Avril-Terrones
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular5 articles app is an app built on Angular.
 
-## Code scaffolding
+You need :
+- [Node.js](https://nodejs.org/)  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Built on :
+- [Angular](https://angular.io)
 
-## Build
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Launch the app
 
-## Running unit tests
+```bash
+npm install
+npm start & json-server --watch db.json
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can now try your app on http://localhost:4200
 
-## Running end-to-end tests
+## Informations
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Je suis parti du repo https://github.com/Amirault/angular5-articles-app.git et du commit #fa71bce8e6b6a315636bc38cc1dead982b229e94 pour effectuer la migration.
 
-## Further help
+Pour voir un exemple de mes compétences en développement web, j'ai créé un template d'une application simple gérant une ressource simple, basée sur NestJS (backend) et Angular (frontend) avec une bd en postgreSQL, disponible à l'adresse suivante : https://gitlab.com/thibaud_at/simple-app-template et lançable en docker.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Migration
+
+Pourquoi la migration est intéressante ?
+
+Effectuer la migration sur nos projets afin d'avoir toujours la dernière version d'angular permet d'obtenir les dernières features et les dernières mises à jour de sécurité.
+Cela augmente considérablement la sécurité mais également la compatibilité avec tous les navigateurs.

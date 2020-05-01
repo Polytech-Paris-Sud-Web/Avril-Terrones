@@ -45,7 +45,6 @@ export class ArticlesComponent implements OnInit {
     let title = document.getElementById("searchTitle")['value'];
     let content = document.getElementById("searchContent")['value'];
     let authors = document.getElementById("searchAuthors")['value'];
-    console.log(title+" | "+content+" | "+authors)
     
     if(title == "" && content == "" && authors == ""){
       document.getElementById("searchResult").style.color = "initial";
