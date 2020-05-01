@@ -10,27 +10,58 @@ import {Observable} from "rxjs";
 })
 export class ArticlesComponent implements OnInit {
 
-  private _articles : Observable<Article[]>;
+  private _articles : Article[];
+  nbResultsFounded : number;
 
   constructor(private articleService: ArticleService) {
   }
 
-  articles(): Observable<Article[]> {
+  articles(): Article[] {
     return this._articles;
   }
 
   ngOnInit() {
-    this._articles = this.articleService.getAll();
+    this.findAll();
+  }
+
+  findAll() {
+    this.articleService.getAll().subscribe((articles) => {
+      this._articles = articles;
+      this.nbResultsFounded = this._articles.length;
+    });
   }
 
   delete(article: Article){
     this.articleService.delete(article.id).subscribe(()=>{
-      this._articles = this.articleService.getAll();
+      this.findAll();
     });
   }
 
   newArticle(article: Article){
-    this._articles = this.articleService.getAll();
+    this.findAll();
+  }
+
+  search(){
+    let title = document.getElementById("searchTitle")['value'];
+    let content = document.getElementById("searchContent")['value'];
+    let authors = document.getElementById("searchAuthors")['value'];
+    console.log(title+" | "+content+" | "+authors)
+    
+    if(title == "" && content == "" && authors == ""){
+      document.getElementById("searchResult").style.color = "initial";
+      this.findAll();
+    }
+    else{
+      this.articleService.getAll().subscribe((articles) => {
+        this._articles = articles.filter(e => {
+          if((e.title.includes(title) && title!="") || (e.content.includes(content) && content!="") || (e.authors.includes(authors) && authors !="")){   
+            return e;
+          }
+        });
+        document.getElementById("searchResult").style.color = this._articles.length!=0 ? "initial" : "red";
+        this.nbResultsFounded = this._articles.length;
+      })
+    }
   }
 
 }
