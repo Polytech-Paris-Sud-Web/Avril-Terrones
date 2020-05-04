@@ -9,8 +9,8 @@ export class ArticleService {
 
   private _article : Observable<Article[]>;
   
-  // private _url_db : string = "http://localhost:3000";
-  private _url_db : string = "https://my-json-server.typicode.com/Polytech-Paris-Sud-Web/Avril-Terrones";
+  private _url_db : string = "http://localhost:3000";
+  // private _url_db : string = "https://my-json-server.typicode.com/Polytech-Paris-Sud-Web/Avril-Terrones";
 
   constructor(private http : HttpClient) {
   }
